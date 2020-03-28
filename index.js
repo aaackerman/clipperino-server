@@ -11,20 +11,20 @@ const typeDefs = gql`
   }
 `;
 const clips = [
-	{
-			title: 'Harry Potter and the Chamber of Secrets',
-			author: 'J.K. Rowling',
-	},
-	{
-			title: 'Jurassic Park',
-			author: 'Michael Crichton',
-	},
+  {
+    title: 'Harry Potter and the Chamber of Secrets',
+    author: 'J.K. Rowling',
+  },
+  {
+    title: 'Jurassic Park',
+    author: 'Michael Crichton',
+  },
 ];
 
 const resolvers = {
-	Query: {
-			clips: () => clips,
-	},
+  Query: {
+    clips: () => clips,
+  },
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
