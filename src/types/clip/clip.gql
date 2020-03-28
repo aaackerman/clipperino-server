@@ -1,0 +1,8 @@
+type Clip {
+  title: String!
+}
+
+type Query {
+  clip(id: ID): Clip!
+  clips: [Clip]!
+}
