@@ -19,13 +19,18 @@ const newClip = (_, args, ctx) => {
   return Clip.create({ ...args.input });
 };
 
+const removeClips = (_, args) => {
+  return Clip.remove({});
+};
+
 export default {
   Query: {
     clip,
     clips
   },
   Mutation: {
-    newClip
+    newClip,
+    removeClips
   },
   Clip: {
     __resolveType(clip) {}
