@@ -1,8 +1,40 @@
 type Clip {
+  clipId: String!
+  url: String!
+  embedUrl: String!
+  broadcasterId: ID!
+  broadcasterName: String!
+  creatorId: ID!
+  creatorName: String!
+  videoId: ID
+  gameId: ID
   title: String!
+  viewCount: Int!
+  createdAt: String!
+  thumbnailUrl: String!
+}
+
+input NewClipInput {
+  clipId: String!
+  url: String!
+  embedUrl: String!
+  broadcasterId: ID!
+  broadcasterName: String!
+  creatorId: ID!
+  creatorName: String!
+  videoId: ID
+  gameId: ID
+  title: String!
+  viewCount: Int!
+  createdAt: String!
+  thumbnailUrl: String!
 }
 
 type Query {
-  clip(id: ID): Clip!
+  clip(clipId: ID): Clip!
   clips: [Clip]!
+}
+
+type Mutation {
+  newClip(input: NewClipInput!): Clip!
 }
