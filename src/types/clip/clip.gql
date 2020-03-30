@@ -37,4 +37,5 @@ type Query {
 
 type Mutation {
   newClip(input: NewClipInput!): Clip!
+  removeClips: [Clip]!
 }
