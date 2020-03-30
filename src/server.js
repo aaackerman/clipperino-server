@@ -1,4 +1,5 @@
-import { ApolloServer } from 'apollo-server';
+import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
 import { merge } from 'lodash';
 import loadTypeSchema from './utils/schema';
 import config from './config';
@@ -22,8 +23,13 @@ export default async () => {
     resolvers: merge({}, clipResolvers)
   });
 
-  await connect(config.dbUrl);
-  const { url } = await server.listen({ port: config.port });
+  const app = express();
 
-  console.log(`GQL server ready at ${url}`);
+  await connect(config.dbUrl);
+
+  server.applyMiddleware({ app });
+
+  app.listen({ port: 4000 }, () => {
+    console.log(`Server running on http://localhost:4000${server.graphqlPath}`);
+  });
 };
