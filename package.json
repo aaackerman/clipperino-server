@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "apollo-server-express": "^2.11.0",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "cuid": "^2.1.4",
     "express": "^4.17.1",
     "graphql": "^14.0.2",
